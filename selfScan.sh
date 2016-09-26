@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#Author: Felipe Webb
+#Purpose: Using Nmap as a defensive tool
+
 #timestamp the file name
 fileName=("SelfScanResults%M-%d-%Y_%H:%M.xml")
 
