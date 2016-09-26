@@ -1,4 +1,5 @@
-//Loops through user-defined labeled email threads and archives them
+//Author: Felipe Webb
+//Purpose: Loops through user-defined labeled email threads and archives them
 function automaticArchive() {
 
   //variable declaration
