@@ -7,7 +7,6 @@ before if password is required, SSID taken form command line argument
 NetConnectionStatus
 2 Connected
 7 Media Disconnected
-
 #>
 
 #Get the information from a Media disconnected network adapter using the Win32_networkadapter class
