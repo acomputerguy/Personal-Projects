@@ -2,9 +2,12 @@
 
 #Author: Felipe Webb
 #Purpose: Using Nmap as a defensive tool
+#Pre-conditions: Have an original xml file to reference (sample.xml)
 
-#timestamp the file name
-fileName=("SelfScanResults%M-%d-%Y_%H:%M.xml")
+#timeStamp file name and store for future reference
+startfn=("SelfScanResults")
+endfn=`date +%m-%d-%Y_%H:%M`
+fileName=("$startfn$endfn.xml")
 
 #automatically pull up IP address from etho0
 ipAddr=`ifconfig eth0 | grep "inet addr" | cut -d ':' -f 2 | cut -d ' ' -f 1`
