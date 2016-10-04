@@ -3,7 +3,7 @@
 
 #Author: Felipe Webb
 #Purpose: Using Nmap as a defensive tool as real world example.
-#Script will constantly scan the local subnet and alert the user when a port is open and closed.
+#Script will constantly scan the local box and alert the user when a port is open and closed.
 #WIP
 
 #Pre-conditions for first file
