@@ -1,51 +1,52 @@
-#!/bin/bash
-
 #Author: Felipe Webb
 #Purpose: Using Nmap as a defensive tool as real world example.
 #Script will constantly scan the local box and alert the user when a port is open and closed.
-#WIP
 
-#Pre-conditions for first file
+#!/bin/bash
+
+#Pre-conditions: Make sure the XML format is acceptable for ndiff (try a test case and make it original_Results.xml)
+
 #automatically pull up the IP address in use
 ipAddr=`ifconfig eth0 | grep "inet addr" | cut -d ':' -f 2 | cut -d ' ' -f 1`
 
-#scan and print first results to an xml file
-#`nmap -sV $ipAddr -oX original_Results.xml`
-
-#temporary value until proof of concept checks out
+#counter for scan # in report
 i=0
 
-while (( $i < 3 ))
+oldFileName="original_Results.xml"
+
+#endlessly scan the local machine
+while :
 do
             #timestamp file name and store for future reference
-            startfn=("SelfScanResults")
-            endfn=`date +%m-%d-%Y_%H:%M:%S`
-            fileName=("$startfn$endfn.xml")
+	startfn=("SelfScanResults")
+	timeStamp=`date +%m-%d-%Y_%H:%M:%S`
+	newFileName=("$startfn$timeStamp.xml")
 
             #scan and print newer results to xml file
-            scan_Results=`nmap -sV $ipAddr -oX $fileName`
+	printThis=`nmap -sV $ipAddr -oX $newFileName`
 
             #parse through ndiff results and print out the essentials
-            scan_Diff=`ndiff original_Results.xml $fileName | awk '/'"$ipAddr"'/{y=1;next}y'`
+	scan_Diff=`ndiff $oldFileName $newFileName | awk '/'"$ipAddr"'/{y=1;next}y'`
 
-            #if there is no difference in between previous and current scan results, go to next iteration
-            if [ -z "$scan_Diff" ]
-                        then
-                        i=$(( i+1 ))
-                        continue
-            fi
-           #WORKING ON THIS PART...diff requires files
-            echo $scan_Diff > temp1
-            echo $scan_Diff > temp2
-            newOrNot=`diff temp1 temp2`
+            #remove old file, no longer needed anymore
+	rm $oldFileName
 
-            #append results to file and increment counter by 1
-            echo "Report #$i" "$scan_Diff" >> "report.txt"
-            i=$(( i+1 ))
+            #the new file becomes the old file once we scan in the next iteration
+	oldFileName=$newFileName
+            
+            #if there is no difference in between previous and current scan results,
+            #go to next iteration and skip remainder of code below
+	if [ -z "$scan_Diff" ]
+		then
+		i=$(( i+1 ))
+		continue
+	fi
 
-            #remove files when done
-            rm $fileName
-            rm temp1
-            rm temp2
+            #append results to file and increment counter by 1 with a timestamp
+	echo -e "$timeStamp Report #$i" "$scan_Diff\n" >> "report.txt"
+	i=$(( i+1 ))
+
+            #delete all old results in trash bin
+	rm -rf ~/.local/share/Trash *
 
 done
