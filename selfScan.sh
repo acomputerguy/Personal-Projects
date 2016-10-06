@@ -12,6 +12,7 @@ ipAddr=`ifconfig eth0 | grep "inet addr" | cut -d ':' -f 2 | cut -d ' ' -f 1`
 #counter for scan # in report
 i=0
 
+#very first file name
 oldFileName="original_Results.xml"
 
 #endlessly scan the local machine
