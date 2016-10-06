@@ -1,6 +1,6 @@
 #Author: Felipe Webb
-#Purpose: Using Nmap as a defensive tool as real world example.
-#Script will constantly scan the local box and alert the user when a port is open and closed.
+#Purpose: Using Nmap as a defensive tool for a real world example.
+#Script will constantly scan the local box and alert the user when a port is ope or closed.
 
 #!/bin/bash
 
@@ -44,7 +44,7 @@ do
 	fi
 
             #append results to file and increment counter by 1 with a timestamp
-	echo -e "$timeStamp Report #$i" "$scan_Diff\n" >> "report.txt"
+	echo -e "$timeStamp Report #$i" "$scan_Diff\n" >> "report.log"
 	i=$(( i+1 ))
 
             #delete all old results in trash bin
