@@ -8,7 +8,8 @@ NetConnectionStatus
 2 Connected
 7 Media Disconnected
 
-#####WIP#####
+*WIP*
+Functionality is done, needs cleanup
 #>
 
 #Get the information from a Media disconnected network adapter using the Win32_networkadapter class
