@@ -18,6 +18,8 @@ Queried vcenter.vase.local in my uses
 Write-Host "`nPress any key to continue...`n"
 $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown") | out-null
 
+Write-Host "`nCtrl + C to exit automatic login script`n"
+
 #Prompt user for server to conncet to - vcenter.vase.local
 $server = Read-Host -Prompt 'Input domain address'
 
