@@ -1,5 +1,5 @@
 #!/bin/usr/bash
-#set ff=unix
+#before wq, :set ff=unix
 for i in $( find -iname '*' )
 do
 	if [ -d $i ]
