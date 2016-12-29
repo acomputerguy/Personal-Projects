@@ -1,3 +1,7 @@
+#Author: Felipe Webb
+#Description: Search and set all files and directories in
+#current and subdirectories permissions accordingly for web server
+
 #!/bin/usr/bash
 #before wq, :set ff=unix
 for i in $( find -iname '*' )
