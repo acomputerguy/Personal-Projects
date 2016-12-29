@@ -1,5 +1,5 @@
 #Author: Felipe Webb
-#Purpose: Using Nmap as a defensive tool for a real world example.
+#Description: Using Nmap as a defensive tool for a real world example.
 #Script will constantly scan the local box and alert the user for port activity
 
 #Pre-conditions: Make sure the XML format is acceptable for ndiff (try a test case and make it original_Results.xml)
