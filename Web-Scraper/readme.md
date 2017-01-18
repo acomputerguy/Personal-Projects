@@ -1,2 +1,2 @@
-#Web scrapers written for Linux/Windows environments for Imgur
-Written scripts to download all pictures on the same page of a file sharing site
+#Scripts written to download pictures from Imgur
+Wrote web scrapers to download all pictures on the same page of a file sharing site for Linux/Windows environments
