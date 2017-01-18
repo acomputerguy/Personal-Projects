@@ -13,3 +13,5 @@ for i in "${media[@]}"
 do
 	wget $i
 done
+
+#rm $file
