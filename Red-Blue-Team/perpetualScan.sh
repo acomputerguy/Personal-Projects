@@ -1,8 +1,8 @@
+#!/bin/bash
+
 #Author: Felipe Webb
 #Description: Using Nmap as a defensive tool for a real world example.
 #Script will constantly scan the local box and alert the user for port activity
-
-#!/bin/bash
 
 #Automatically pull up the IP address in use
 ipAddr=`ifconfig eth0 | grep "inet addr" | cut -d ':' -f 2 | cut -d ' ' -f 1`
