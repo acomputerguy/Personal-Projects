@@ -15,4 +15,5 @@ Prerequisites:
 
 This program requires you to have Notepad++ installed, as it parses through the langs.model.xml for instances. This allows me to find comments for any type of file extension and remove the comments specified in that language.
 
-Run the program with ./commentRemover file_name.ext
+Run the program
+`./commentRemover file_name.ext`
