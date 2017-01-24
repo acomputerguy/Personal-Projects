@@ -2,7 +2,7 @@ Thinking of a way to program a method to remove documentation for various kinds 
 
 Should I hard-code each condition for each language? **No.**
 
-There's got to be an easier way. Should I look up an online database that already has this information and parse through that? **Maybe.**
+How about looking up an online database that already has this information? **Maybe.**
 
 Perhaps I should recycle what's already on my local desktop? **Yes.**
 
