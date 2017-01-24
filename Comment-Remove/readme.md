@@ -1,4 +1,6 @@
-Thinking of a way to program a method to remove documentation for various kinds of languages. Should I hard-code each condition for each language? **No.**
+Thinking of a way to program a method to remove documentation for various kinds of languages-
+
+Should I hard-code each condition for each language? **No.**
 
 There's got to be an easier way. Should I look up an online database that already has this information and parse through that? **Maybe.**
 
