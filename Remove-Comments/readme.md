@@ -9,8 +9,7 @@ Perhaps I should reuse what's already on my local desktop? **Yes.**
 
 #HowTo
 
-Prerequisites:
-* Windows box
+Prerequisite:
 * Notepad++ installed
 
 This program requires you to have Notepad++ installed, as it parses through the langs.model.xml for instances. This allows me to find comments for any type of file extension and remove the comments specified in that language.
