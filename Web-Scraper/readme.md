@@ -7,4 +7,4 @@ winImgurScraper.ps1 [Windows] and linImgurScraper.sh [Linux]will scrape for all 
 #Running the script
 Run the script on your desktop with the URL to the post via command line argument
 
-./winImgurScraper.ps1 https://www.imgur.com/gallery/aBC12De
+`./winImgurScraper.ps1 https://www.imgur.com/gallery/aBC12De`
