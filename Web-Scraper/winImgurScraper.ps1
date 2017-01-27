@@ -1,4 +1,3 @@
-###PUT CODE IN A SINGLE LOOP if possibru
 param(
     [string]$URL
 )
@@ -9,21 +8,20 @@ $indexSlash = $URL.LastIndexOf('/')
 $postNameLength = $URL.Length - $indexSlash
 $urlDir = $URL.Substring($indexSlash + 1, $postNameLength - 1)
 $dirName = $dirName + $urlDir
-#New-Item -Name $dirName -ItemType directory -Path $PWD
+New-Item -Name $dirName -ItemType directory -Path $PWD
 
 #find full path to dir for dl and go to it
 [string]$outputDir = $PWD
-#USE THIS FOR AT THE END
-$absPath = $outputDir + "\"
+$absPath = $outputDir + "\" + $dirName + "\" #USE THIS FOR AT THE END
 $fullPath = $outputDir + "\" + $dirName + "\" + $urlDir
-#Set-Location -Path $dirName
+Set-Location -Path $dirName
 
 #go to the album version of the supplied URL
 #http://imgur.com/gallery/btHMP
 #becomes http://imgur.com/a/btHMP?grid
 $albumURL = $URL + "?grid"
 $albumURL = $albumURL.Replace("gallery", "a")
-#Invoke-WebRequest -Uri $albumURL -Outfile $fullPath
+Invoke-WebRequest -Uri $albumURL -Outfile $fullPath
 
 #parse for {"hash":" and get file name IGSiv8v, and file ext
 $webFile = $urlDir
@@ -90,10 +88,4 @@ foreach($link in $imgurLinks)
     Invoke-WebRequest -Uri $link -Outfile $filePaths[$l]
     $l++
 }
-
-#links you need
-#http://imgur.com/gallery/4W6ER
-#http://imgur.com/a/4W6ER?grid
-#view-source:http://imgur.com/a/btHMP?grid
-
-#maybe use this later "num_images":"22"
+Remove-Item $fullPath
