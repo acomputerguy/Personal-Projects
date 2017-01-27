@@ -13,6 +13,8 @@ $dirName = $dirName + $urlDir
 
 #find full path to dir for dl and go to it
 [string]$outputDir = $PWD
+#USE THIS FOR AT THE END
+$absPath = $outputDir + "\"
 $fullPath = $outputDir + "\" + $dirName + "\" + $urlDir
 #Set-Location -Path $dirName
 
@@ -51,7 +53,7 @@ foreach($meta in $metadata)
 #verify the lines
 foreach($meta in $fileMetadata)
 {
-    if($i -eq 0) #first one requires more parsing
+    if($i -eq 0) #first one requires more parsing then treat it like the rest
     {
         $meta = $meta.Split('[')[1]
     }
@@ -60,22 +62,34 @@ foreach($meta in $fileMetadata)
 
     $i++
 }
-Write-Host $i
 
-#then create http://i.imgur.com/IGSiv8v.jpg
+#then create http://i.imgur.com/ab12CDe.jpg
 $imgurLinks = @()
 $j = 0
+$imgurFileNames = @()
+$filePaths = @()
 while($j -lt $i)
 {
-    $imgurLinks += "http://i.imgur.com/" + $imgurFiles[$j] + $imgurExt[$j]
+    $imgurFileNames += $imgurFiles[$j] + $imgurExt[$j]
+    $imgurLinks += "http://i.imgur.com/" + $imgurFileNames[$j]
     $j++
 }
 $k = 0
-foreach($bla in $imgurLinks)
-{ Write-Host $imgurFiles }
-#absolute path - outfile requires file name too
-#Invoke-WebRequest -Uri $URL -Outfile $fullPath
-
+foreach($file in $imgurLinks)
+{
+    $imgurFileNames += $imgurFiles[$k] + $imgurExt[$k]
+    $filePaths += $absPath + $imgurFileNames[$k]
+    $k++
+}
+$l = 0
+foreach($link in $imgurLinks)
+{
+    #Write-Host $link
+    #REMOVE post- FROM FILE NAME
+    #Write-Host $filePaths[$l]
+    Invoke-WebRequest -Uri $link -Outfile $filePaths[$l]
+    $l++
+}
 
 #links you need
 #http://imgur.com/gallery/4W6ER
