@@ -10,7 +10,7 @@ $fileExt = $progFile.Substring($indexDot + 1, $fileExtLen - 1)
 
 #get notepad file for data...change later for env var, C: can be diff
 #$d = "${Env:ProgramFiles(x86)}
-$absPath = "C:\Program Files (x86)\Notepad++\langs.model.xml"
+$absPath = "${env:ProgramFiles(x86)}\Notepad++\langs.model.xml"
 
 #loop through langs.model.xml
 foreach($line in Get-Content $absPath)
