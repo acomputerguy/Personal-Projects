@@ -2,6 +2,11 @@ param (
     [string]$progFile
 )
 
+if($progFile -eq "")
+{
+    Write-Host "Please enter a file. Terminating program..."
+    Exit
+}
 #acquire file extension from command line arg
 $indexDot = $progFile.IndexOf('.')
 $fileNameLen = $progFile.Length
@@ -20,19 +25,22 @@ foreach($line in Get-Content $absPath)
         #remove text if its: "ext, ext , ext"
         if($line -match "(`"$fileExt| $fileExt | $fileExt`")")
         {
-            Write-Host $line
+            #Write-Host $line
             $indexCommentLine = $line[$line.IndexOf('commentLine=') + 13]
         }
     }
 }
-Write-Host $indexCommentLine
+#Write-Host $indexCommentLine
 
 #loop through file mentioned in arg
 foreach($line in Get-Content $progFile)
 {
-    if($line -notmatch $indexCommnetLine)
+    if($line -match $indexCommentLine) #-notmatch
     {
-        
+        Write-Host $line
+        if ($line 
+        #i want to find a way identifying # when there is also a # in the code...hmmm. youll use indexOf('#') with if there isnt whitespace before!
+        #and always check for the last one! this is the fun part
     }
 }
 
