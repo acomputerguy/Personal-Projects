@@ -8,3 +8,5 @@ Wrote web scrapers to download all pictures on the same page of a file sharing s
 Run the script on your desktop with the URL to the post via command line argument
 
 `./winImgurScraper.ps1 https://www.imgur.com/gallery/aBC12De`
+
+[WIP - rewrite]
