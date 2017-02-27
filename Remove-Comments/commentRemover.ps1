@@ -39,8 +39,8 @@ foreach($line in Get-Content $progFile)
     {
         Write-Host $line
         if ($line 
-        #i want to find a way identifying # when there is also a # in the code...hmmm. youll use indexOf('#') with if there isnt whitespace before!
-        #and always check for the last one! this is the fun part
+        #How to identify # when there is also a # in the code...hmmm. youll use indexOf('#') with if there isnt whitespace before!
+        #and always check for the last one, not second or third to last! this is the fun part
     }
 }
 
