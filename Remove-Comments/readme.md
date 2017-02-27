@@ -16,3 +16,5 @@ This program requires you to have Notepad++ installed, as it parses through the 
 
 Run the program
 `./commentRemover.ps1 file_name.ext`
+
+[WIP]
