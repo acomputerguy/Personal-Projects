@@ -1,4 +1,4 @@
-#Removing comments from program
+# Removing comments from program
 Tried thinking of a way to program a method to remove documentation for various kinds of languages-
 
 Should I hard-code each condition for each language? **No.**
