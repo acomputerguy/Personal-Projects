@@ -1,4 +1,4 @@
-#Scripts written to download pictures from Imgur
+# Scripts written to download pictures from Imgur
 Wrote web scrapers to download all pictures on the same page of a file sharing site for Linux/Windows environments
 
 * winStandardPost.ps1 [Windows] and linStandardPost.sh [Linux] will scrape for a post that doesn't exceed over 10 files listed
